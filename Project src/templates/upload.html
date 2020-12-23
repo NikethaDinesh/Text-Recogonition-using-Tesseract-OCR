@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Text OCR</title>
+   <style>
+	.header{
+		padding:20px,10px;
+		background-color:#ccffcc;
+		overflow:hidden;
+	}
+	h1{
+		text-align:center;
+		color:#000099;
+	}
+	body{
+		background-color: #e6ffe6;
+	}
+	.center{
+		text-align:center;
+		align:center;
+	}
+	.container{
+		width:1250px;
+		padding:10px;
+		border:5px solid gray;
+		margin:0;
+		align:center;
+	}
+   </style>
+ </head>
+ 
+ <body>
+
+	<div class="header">
+	<h1><i>Text Recogonition using Tesseract-OCR</i></h1>
+	</div>
+	
+	<div class="center">
+	{% if msg %}
+   <h1>{{ msg }}</h1>
+   {% endif %}
+   <h3>Upload Image file</h3><h4>(supported formats are jpg,jpeg,png)</h4>
+  
+   <form method=post enctype=multipart/form-data>
+     <p><input type=file name=file>
+        <input type=submit value=Upload>
+   </form>
+   </div>
+	<div class="container">
+   <h3>Extracted Text from Image:</h3>
+   <!--
+   {% if img_src %}
+     <img src="{{ img_src }}">
+   {% endif %}
+   {% if filename %}
+     <div>
+		<img src="{{url_for('display_image',filename=filename)}}">
+	 </div>
+   {% endif %}-->
+  
+   {% if extracted_text %}
+     <p><b> {{ extracted_text }} </b></p>
+  
+   <!--{% else %}
+     The extracted text will be displayed here
+   {% endif %}-->
+   
+   
+   </div>
+ </body>
+</html>
